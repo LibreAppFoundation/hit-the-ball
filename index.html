@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Falling Characters</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+  </head>
+  <body ng-app="TestApp" class="ng-cloak">
+    <div ng-controller="TestController">
+      <div ng-show="state == 'start'">
+        <h1>Hit the Ball</h1>
+        <div class="btn" ng-click="state = 'play'; play()">
+          START
+        </div>
+      </div>
+      <div ng-show="state == 'play'">
+        <canvas ng-click="touch($event)" id="canvas"></canvas>
+        Lives : {{life}}
+      </div>
+      <div ng-show="state == 'lost'">
+        <h1>OH, No!</h1>
+        <h2>You lost one chance</h2>
+        <img class="image" src="img/cry.svg">
+        <p>{{life}} more chance(s) are remaining</p>
+      </div>
+      <div ng-show="state == 'over'">
+        <h1>Game Over</h1>
+        <h2>Sorry!<br/></br/>You could n't make it</h2>
+        <img class="image" src="img/cry.svg">
+        <div class="btn" ng-click="reset(); state = 'play'; play()">
+          Try Again
+        </div>
+      </div>
+      <div ng-show="state == 'win'">
+        <h1>Congrats!</h1>
+        <img class="image" src="img/win.svg">
+        <h2>You did it!</h2>
+        <div class="btn" ng-click="reset(); state = 'play'; play()">
+          Try Again
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/TestController.js"></script>
+  </body>
+</html>
