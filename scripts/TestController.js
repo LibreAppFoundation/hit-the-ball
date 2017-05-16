@@ -107,11 +107,12 @@ app.controller("TestController",
                       }
 
                       //check pad hit
-                      if (ball.x >= (paddle.x - ball.radius)&& 
-                          ball.x < (paddle.x + paddle.length + ball.radius) && 
-                          ball.y > (canvas.height - paddle.height - ball.radius)) {
+                      if (this.x >= (paddle.x - this.radius)&& 
+                          this.x < (paddle.x + paddle.length + this.radius) && 
+                          this.y > (canvas.height - paddle.height - this.radius)) {
                         this.angle = Math.PI / 2 - this.angle;
                         this.ydir = -1;
+                        this.y = canvas.height - paddle.height - this.radius;
                       } else if (ball.y > canvas.height - paddle.height) {
                         $scope.life -= 1;
                         if ($scope.life == 0) {
@@ -119,6 +120,13 @@ app.controller("TestController",
                         } else {
                           $scope.state = 'lost';
                         }
+                      }
+                      
+                      // Adjust angle
+                      if (this.angle < Math.PI / 12) {
+                        this.angle += Math.PI / 24;
+                      } else if (this.angle > 5 * Math.PI / 12) {
+                        this.angle -= Math.PI / 24;
                       }
 
                       this.x += ballSpeed * (Math.sin(this.angle) * this.xdir);
@@ -184,7 +192,7 @@ app.controller("TestController",
                     if($scope.state == 'play') {
                       $timeout(draw, 1000 / FPS);
                     } else if ($scope.state == 'lost') {
-                      $timeout($scope.proceed, 5000);
+                      $timeout($scope.proceed, 4000);
                     }
                   }
                   
