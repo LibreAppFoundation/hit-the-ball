@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id    = "com.libreappfoundation"
+    version   = "1.0.0">
+
+  <name>Hit the Ball</name>
+
+  <description>
+    An HTML 5 Canvas implementation of traditional Breakout Game.
+  </description>
+
+  <author href="http://libreappfoundation.github.io" email="niyasmonc@gmail.com">
+    LibreApp Foundation
+  </author>
+
+  <!--
+    If you do not want any permissions to be added to your app, add the
+    following tag to your config.xml; you will still have the INTERNET
+    permission on your app, which PhoneGap requires.
+  -->
+  
+
+  
+  <preference name="permissions"        value="none"/>
+  <preference name="BackgroundColor" value="0x3cb371"/>
+  <preference name="orientation"        value="portrait" />
+  <preference name="target-device"        value="universal" />
+  <preference name="fullscreen"         value="true" />
+  <preference name="android-installLocation"  value="auto" />
+  <!--
+    Define a specific version of PhoneGap to build into your app.
+    <preference name="phonegap-version"     value="3.5.0" />
+  -->
+
+  <!-- Define app icon for each platform. -->
+  <icon src="icon.png" />
+  <!--
+  <icon src="img/icons/mipmap-mdpi/ic_launcher.png"   platform="android"  qualifier="mdpi" />
+  <icon src="img/icons/mipmap-hdpi/ic_launcher.png"   platform="android"  qualifier="hdpi" />
+  <icon src="img/icons/mipmap-xhdpi/ic_launcher.png"   platform="android"  qualifier="xhdpi" />
+  <icon src="img/icons/mipmap-xxhdpi/ic_launcher.png"   platform="android"  qualifier="xxhdpi" />
+  <icon src="img/icons/mipmap-xxxhdpi/ic_launcher.png"   platform="android"  qualifier="xxxhdpi" />
+  -->
+
+  <access origin="*"/>
+  <allow-intent href="http://*/*" />
+  <allow-intent href="https://*/*" />
+  <allow-intent href="tel:*" />
+  <allow-intent href="sms:*" />
+  <allow-intent href="mailto:*" />
+  <allow-intent href="geo:*" />
+  <platform name="android">
+    <allow-intent href="market:*" />
+  </platform>
+  
+</widget>
