@@ -128,6 +128,7 @@ var reset = function () {
   paddle = new Paddle(80);
   ball = new Ball(canvas.width / 2, canvas.height / 2);
   life = 3;
+  score = 0;
   play();
 }
 
@@ -301,7 +302,7 @@ document.addEventListener('keyup', keyupEvent);
 document.addEventListener('touchstart', touchStartEvent);
 document.addEventListener('touchend', touchEndEvent);
 
-// welcome();
+welcome();
 // win();
 // lost();
-play();
+// play();
