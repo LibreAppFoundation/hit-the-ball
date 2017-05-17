@@ -1,3 +1,5 @@
+alert("hi");
+
 function generateRandomColor() {
   var r = Math.ceil(Math.random() * 255);
   var g = Math.ceil(Math.random() * 255);
@@ -97,6 +99,7 @@ var Ball = function(x, y) {
 }
 
 var canvas = document.getElementById('canvas');
+alert("canvas " + canvas);
 var canvasWidth = window.innerWidth - 50;
 var canvasHeight = window.innerHeight - 50;
 if (canvasWidth > canvasHeight) {
