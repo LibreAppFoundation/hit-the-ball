@@ -121,6 +121,8 @@ window.onload = function() {
     var ball = new Ball(canvas.width / 2, canvas.height / 2);
     var leftPress = false;
     var rightPress = false;
+    var pressed = false;
+    var previousX = undefined;
     var dx = (Math.random() > 0.5) ? 1 : -1;
     var dy = -1;
 
@@ -265,6 +267,7 @@ window.onload = function() {
     }
 
     function touchStartEvent(e) {
+      pressed = true;
       var touches = e.touches;
       for (touch of touches) {
         var x = touch.clientX - 25;
@@ -276,12 +279,6 @@ window.onload = function() {
                y < canvasHeight + 40) {
                play();
              }
-          } else if (screen == 'play') {
-            if (x > canvasWidth / 2) {
-              rightPress = true;
-            } else {
-              leftPress = true;
-            }
           } else if (screen == 'win' || screen == 'lost') {
             if (x > canvasWidth / 6 && 
                  x < (canvasWidth / 6 + 2 * canvasWidth / 3) &&
@@ -292,15 +289,37 @@ window.onload = function() {
           }
        }
     }
+    
+    function touchMoveEvent(e) {
+      var touches = e.changedTouches;
+      console.log(touches.length);
+      for(touch of touches) {
+        var x = touch.clientX;
+        if (pressed && previousX != undefined) {
+          if (x > previousX) {
+            leftPress = false;
+            rightPress = true;
+          }
+          else if(x < previousX){
+            leftPress = true;
+            rightPress = false;
+          }
+        }
+        previousX = x;
+      }
+    }
 
     function touchEndEvent(e) {
       rightPress = false;
       leftPress = false;
+      pressed = false;
+      previousX = undefined;
     }
 
     document.addEventListener('keydown', keydownEvent);
     document.addEventListener('keyup', keyupEvent);
     document.addEventListener('touchstart', touchStartEvent);
+    document.addEventListener('touchmove', touchMoveEvent);
     document.addEventListener('touchend', touchEndEvent);
 
     welcome();
