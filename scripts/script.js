@@ -38,7 +38,7 @@ window.onload = function () {
 
   var Paddle = function (length) {
     this.length = length;
-    this.height = 10;
+    this.height = 20;
     this.x = (canvas.width - length) / 2;
     this.y = canvas.height - this.height;
     this.color = "brown";
@@ -107,7 +107,7 @@ window.onload = function () {
   }
   var FPS = 30;
   var padSpeed = 5;
-  var ballSpeed = 5;
+  var ballSpeed = 10;
   var blocks = [];
   var colCount = 6;
   var rowCount = 5;
@@ -119,7 +119,7 @@ window.onload = function () {
   canvas.width = canvasWidth;
   canvas.height = canvasHeight;
   var ctx = canvas.getContext("2d");
-  var paddle = new Paddle(80);
+  var paddle = new Paddle(canvasWidth / 5);
   var ball = new Ball(canvas.width / 2, canvas.height / 2);
   var leftPress = false;
   var rightPress = false;
