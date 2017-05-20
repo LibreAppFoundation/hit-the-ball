@@ -30,7 +30,6 @@
   <preference name="target-device"        value="universal" />
   <preference name="fullscreen"         value="true" />
   <preference name="android-installLocation"  value="auto" />
-  <preference name="phonegap-version" value="cli-6.3.0" />
 
   <!--
     Define a specific version of PhoneGap to build into your app.

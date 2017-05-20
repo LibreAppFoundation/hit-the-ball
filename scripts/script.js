@@ -38,7 +38,7 @@ window.onload = function () {
 
   var Paddle = function (length) {
     this.length = length;
-    this.height = 20;
+    this.height = 15;
     this.x = (canvas.width - length) / 2;
     this.y = canvas.height - this.height;
     this.color = "brown";
@@ -107,7 +107,7 @@ window.onload = function () {
   }
   var FPS = 30;
   var padSpeed = 5;
-  var ballSpeed = 10;
+  var ballSpeed = 5;
   var blocks = [];
   var colCount = 6;
   var rowCount = 5;
@@ -241,8 +241,8 @@ window.onload = function () {
     else if (done) {
       win();
     } else if (screen === 'play') {
-        requestAnimationFrame(draw);
-       }
+      setTimeout(draw, 1000 / FPS);
+    }
   }
 
   function play() {
