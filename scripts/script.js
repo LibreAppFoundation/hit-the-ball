@@ -241,10 +241,8 @@ window.onload = function () {
     else if (done) {
       win();
     } else if (screen === 'play') {
-      setTimeout(function() {
         requestAnimationFrame(draw);
-      }, 1000 / FPS);
-    }
+       }
   }
 
   function play() {
