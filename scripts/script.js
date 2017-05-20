@@ -200,7 +200,7 @@ window.onload = function () {
     screen = "win";
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     drawText(canvasWidth / 2, canvasHeight / 7, "AWESOME", "bold 32px sans-serif", "white", "center");
-    drawText(canvasWidth / 2, 2 * canvasHeight / 7, "You scored " + score + " points", "bold 12px sans-serif", "center");
+    drawText(canvasWidth / 2, 2 * canvasHeight / 7, "You scored " + score + " points", "bold 12px sans-serif", "white", "center");
     drawImage(canvasWidth / 3, 3 * canvasHeight / 7, "./img/win.png", canvasWidth / 3, canvasWidth / 3);
     drawBtn(canvasWidth / 6, 4 * canvasHeight / 5, 2 * canvasWidth / 3, 40, "TRY AGAIN", "white");
   }
